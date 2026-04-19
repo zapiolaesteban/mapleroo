@@ -20,7 +20,7 @@
     --rule: #D8CFBC;
     --maple: #C85A1E;
     --maple-deep: #A84613;
-    --berry: #7A2838;
+    --berry: #D43B55;
     --espresso: #1A1410;
     --cream: #EADBC0;
     --highlight-bg: rgba(200, 90, 30, 0.12);
@@ -40,7 +40,7 @@
     --rule: #2E251E;
     --maple: #E87A3A;
     --maple-deep: #C85A1E;
-    --berry: #A84254;
+    --berry: #E55979;
     --espresso: #0A0705;
     --cream: #EADBC0;
     --highlight-bg: rgba(232, 122, 58, 0.14);
@@ -433,8 +433,8 @@
   }
   .pack-pair {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(32px, 6vw, 60px);
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: clamp(24px, 4vw, 48px);
     align-items: end;
     justify-items: center;
   }
@@ -475,7 +475,7 @@
      ═══════════════════════════════════════════ */
   .variants-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: clamp(16px, 3vw, 32px);
     margin-top: 40px;
   }
@@ -667,6 +667,92 @@
   footer span { color: var(--maple); margin: 0 8px; }
 
   /* ═══════════════════════════════════════════
+     PROOF BLOCK (University of Canberra FFNR + Maple from Canada)
+     ═══════════════════════════════════════════ */
+  .proof-block {
+    margin-top: 80px;
+    padding: clamp(40px, 6vw, 64px) clamp(32px, 5vw, 56px);
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 2px;
+    text-align: center;
+  }
+  :root[data-theme="dark"] .proof-block {
+    background: var(--paper-warm);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  .proof-eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.3em;
+    color: var(--maple); font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .proof-eyebrow::before,
+  .proof-eyebrow::after {
+    content: ""; display: inline-block;
+    width: 24px; height: 1px; background: var(--maple);
+  }
+  .proof-headline {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    margin-bottom: 20px;
+    color: inherit;
+  }
+  .proof-headline em {
+    font-style: italic;
+    color: var(--maple);
+  }
+  .proof-lede {
+    font-size: clamp(15px, 1.8vw, 17px);
+    color: #C4B8A0;
+    max-width: 620px;
+    margin: 0 auto 40px;
+    line-height: 1.65;
+  }
+  :root[data-theme="dark"] .proof-lede { color: var(--muted-deep); }
+  .proof-lede strong {
+    color: var(--paper);
+    font-weight: 600;
+  }
+  :root[data-theme="dark"] .proof-lede strong { color: var(--ink); }
+  .proof-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 520px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid #3A332C;
+  }
+  :root[data-theme="dark"] .proof-stats { border-top-color: var(--rule); }
+  .proof-stat { text-align: center; }
+  .proof-num {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 500;
+    color: var(--maple);
+    line-height: 1;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .proof-lbl {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A39B8A;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  :root[data-theme="dark"] .proof-lbl { color: var(--muted-deep); }
+
+  /* ═══════════════════════════════════════════
      CLAIMS STRIP (from moodboard)
      ═══════════════════════════════════════════ */
   .claims-strip {
@@ -746,7 +832,7 @@
     .mark-hero { grid-template-columns: 1fr; }
     .hero-meta { grid-template-columns: 1fr 1fr; gap: 16px; }
     .pack-pair { grid-template-columns: 1fr; gap: 48px; }
-    .variants-grid { grid-template-columns: repeat(2, 1fr); }
+    .variants-grid { grid-template-columns: 1fr; }
     .palette-grid { grid-template-columns: repeat(3, 1fr); }
     .pitch-grid { grid-template-columns: 1fr; gap: 28px; }
     .positioning-grid { grid-template-columns: 1fr; gap: 8px; }
@@ -755,6 +841,7 @@
     .claim:nth-child(2) { border-right: none; }
     .claim:nth-child(3), .claim:nth-child(4) { border-bottom: none; }
     .claim:nth-child(3) { border-right: 1px solid var(--rule); }
+    .proof-stats { grid-template-columns: 1fr; gap: 28px; }
     .scale-row {
       flex-wrap: wrap; justify-content: center; gap: 20px;
     }
@@ -828,7 +915,7 @@
           <span class="stroke">Pure ingredients.</span>
           <span class="stroke"><em>Pure</em> performance.</span>
         </h1>
-        <p class="hero-lede">From early mornings to finish lines, from setbacks to comebacks — mapleROO is the Patagonia of endurance fuel, with the craft of a single-origin coffee roaster. Natural sports nutrition, born in Canada, raised in Australia, <strong>fueled by maple</strong>.</p>
+        <p class="hero-lede">From dawn swim sets to finish-line photos, from training bunches to solo long runs — mapleROO fuels the people who <strong>live the multisport life, not just race it.</strong> The Patagonia of endurance fuel, with the craft of a single-origin coffee roaster. Born in Canada, raised in Australia, proudly fueling the tri community.</p>
         <div class="hero-meta">
           <span>Born<strong>in Canada</strong></span>
           <span>Trusted<strong>by athletes</strong></span>
@@ -874,32 +961,50 @@
           <text x="140" y="288" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" fill="#7A7165" text-anchor="middle">single origin</text>
           <text x="140" y="310" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#1A1715" text-anchor="middle" letter-spacing="3">MAPLE · COFFEE</text>
           <!-- HERO: big 35, smaller g, CHO bold beneath -->
-          <text x="140" y="460" font-family="Cormorant Garamond, serif" font-size="150" font-weight="500" fill="#1A1715" text-anchor="middle" letter-spacing="-6">35</text>
+          <text x="140" y="460" font-family="Cormorant Garamond, serif" font-size="150" font-weight="500" fill="#1A1715" text-anchor="middle" letter-spacing="-6">41</text>
           <text x="205" y="460" font-family="Cormorant Garamond, serif" font-size="64" font-weight="500" fill="#1A1715" letter-spacing="-2">g</text>
           <text x="140" y="488" font-family="JetBrains Mono, monospace" font-size="14" font-weight="800" fill="#1A1715" text-anchor="middle" letter-spacing="1.5">CHO</text>
           <line x1="112" y1="520" x2="168" y2="520" stroke="#C85A1E" stroke-width="0.8"/>
-          <text x="140" y="548" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#C85A1E" text-anchor="middle" letter-spacing="3.5">30MG CAFFEINE</text>
+          <!-- Caffeine pill: filled terracotta badge -->
+          <rect x="68" y="532" width="144" height="28" rx="3" fill="#C85A1E"/>
+          <text x="140" y="550" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#F4EFE5" text-anchor="middle" letter-spacing="2.5">CAFFEINE 30mg</text>
           <text x="140" y="586" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" fill="#7A7165" text-anchor="middle" letter-spacing="2.5">NOTES</text>
           <text x="140" y="605" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" fill="#1A1715" text-anchor="middle">maple · espresso · clean finish</text>
 
           <!-- Small brand mantra (from moodboard: "Clean. Simple. Effective.") -->
           <text x="140" y="635" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" fill="#7A7165" text-anchor="middle" letter-spacing="3">CLEAN · SIMPLE · EFFECTIVE</text>
 
-          <!-- AUSTRALIAN-ORGANIC-STYLE STAMP, centered, bottom -->
-          <g transform="translate(140, 678)">
-            <!-- Outer ring: filled terracotta -->
-            <circle cx="0" cy="0" r="30" fill="#C85A1E"/>
-            <!-- Inner cream disc with thin maple stroke -->
-            <circle cx="0" cy="0" r="24" fill="#F4EFE5" stroke="#C85A1E" stroke-width="0.6"/>
-            <!-- Central leaf glyph, upper portion -->
-            <svg x="-9" y="-17" width="18" height="18"><use href="#leaf" fill="#C85A1E"/></svg>
-            <!-- Two-line text, lower portion, specialty-stamp aesthetic -->
-            <text x="0" y="8" font-family="Cormorant Garamond, serif" font-size="7.5" font-weight="600" fill="#C85A1E" text-anchor="middle" font-style="italic">canadian</text>
-            <text x="0" y="17" font-family="Cormorant Garamond, serif" font-size="7.5" font-weight="600" fill="#C85A1E" text-anchor="middle" font-style="italic">organic</text>
+          <!-- AUSTRALIAN CERTIFIED ORGANIC — "Bud" style stamp, maple orange -->
+          <g transform="translate(140, 670)">
+            <!-- Outer ring -->
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#C85A1E" stroke-width="1.2"/>
+            <!-- Inner ring -->
+            <circle cx="0" cy="0" r="20.5" fill="none" stroke="#C85A1E" stroke-width="0.4"/>
+            <!-- Curved text: top -->
+            <path id="heroBudTop" d="M -16 0 A 16 16 0 0 1 16 0" fill="none"/>
+            <text font-family="Inter, sans-serif" font-size="4.8" font-weight="700" fill="#C85A1E" letter-spacing="1">
+              <textPath href="#heroBudTop" startOffset="50%" text-anchor="middle">AUSTRALIAN CERTIFIED</textPath>
+            </text>
+            <!-- Curved text: bottom -->
+            <path id="heroBudBot" d="M -14 2 A 14 14 0 0 0 14 2" fill="none"/>
+            <text font-family="Inter, sans-serif" font-size="4.8" font-weight="700" fill="#C85A1E" letter-spacing="1">
+              <textPath href="#heroBudBot" startOffset="50%" text-anchor="middle">ORGANIC</textPath>
+            </text>
+            <!-- Central "Bud" sprout icon -->
+            <g transform="translate(0, 0)">
+              <!-- Seed body: rounded base -->
+              <ellipse cx="0" cy="2" rx="3.2" ry="4" fill="#C85A1E"/>
+              <!-- Left leaf -->
+              <path d="M -0.8 -1.5 Q -5 -4 -5.8 -0.5 Q -3.5 0.5 -0.8 -1.5 Z" fill="#C85A1E"/>
+              <!-- Right leaf -->
+              <path d="M 0.8 -1.5 Q 5 -4 5.8 -0.5 Q 3.5 0.5 0.8 -1.5 Z" fill="#C85A1E"/>
+              <!-- Center stem/sprout point -->
+              <path d="M 0 -2 L -0.4 -5 Q 0 -6 0.4 -5 L 0 -2 Z" fill="#C85A1E"/>
+            </g>
           </g>
 
-          <!-- Tiny net weight below the stamp -->
-          <text x="140" y="700" font-family="JetBrains Mono, monospace" font-size="6" fill="#B5A893" text-anchor="middle" letter-spacing="1.5">50g · 1.76oz · GUT-FRIENDLY</text>
+          <!-- Readable darker detail line below stamp -->
+          <text x="140" y="705" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600" fill="#5A5048" text-anchor="middle" letter-spacing="1.8">50g · 1.76oz · GUT-FRIENDLY</text>
           <rect x="15" y="18" width="250" height="692" rx="5" fill="url(#heroShine)"/>
         </svg>
       </div>
@@ -925,17 +1030,38 @@
       <div class="pitch-card">
         <div class="pitch-num">02 / PRODUCT</div>
         <h3>Organic maple is nature's fuel.</h3>
-        <p>Certified organic. Tapped from Canadian forests. Low glycemic. Naturally electrolyte-rich. Gentle on the gut. It fueled people walking for days through Canadian winters before "maltodextrin" existed. The category's newest innovation is the oldest one in the forest.</p>
+        <p>100% Canadian organic maple syrup. Naturally <strong>1:1 glucose–fructose</strong> for efficient absorption. Low glycemic. Electrolyte-rich. Gentle on the gut. Three flavours (<em>Maple · Coffee, Maple · Raspberry, Salted Maple</em>), plus energy waffles and drink mix. The category's newest innovation is the oldest one in the forest.</p>
       </div>
       <div class="pitch-card">
         <div class="pitch-num">03 / STORY</div>
         <h3>Founder collapse → promise → brand.</h3>
-        <p>Eric Poulin collapsed after his second Ironman — fit but failed by his fuel. He promised his wife Karine he'd do better. The Poulin family moved to Australia. mapleROO is how he kept the promise. Origin stories don't get cleaner.</p>
+        <p>Eric Poulin collapsed after his second Ironman — fit but failed by his fuel. He promised his wife Karine he'd do better. The family moved to Australia, where the coastal tri-life gave him back the sport. mapleROO is how he kept the promise. <em>For the swim, bike, run life.</em> Origin stories don't get cleaner.</p>
       </div>
     </div>
 
     <div class="pull-quote">
       Patagonia, but for the people<br>who race at <em>dawn.</em>
+    </div>
+
+    <!-- THE PROOF — real science partnerships -->
+    <div class="proof-block">
+      <div class="proof-eyebrow">The Proof</div>
+      <h3 class="proof-headline">Not theory. <em>Performance.</em></h3>
+      <p class="proof-lede">mapleROO wasn't engineered in a spreadsheet. The formula was developed with <strong>University of Canberra's Functional Foods and Nutrition Research Laboratory</strong> and <strong>Maple from Canada</strong> — the Canadian industry body that has invested over $15M in maple research. A naturally-occurring <strong>1:1 glucose-fructose ratio</strong> for efficient absorption. Real science. Real testing. Real athletes.</p>
+      <div class="proof-stats">
+        <div class="proof-stat">
+          <div class="proof-num">UC</div>
+          <div class="proof-lbl">FFNR Lab<br>research partnership</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-num">$15M</div>
+          <div class="proof-lbl">Maple from Canada<br>research invested</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-num">1:1</div>
+          <div class="proof-lbl">glucose-fructose<br>absorption ratio</div>
+        </div>
+      </div>
     </div>
 
     <!-- CLAIMS STRIP — from moodboard -->
@@ -976,9 +1102,11 @@
 
     <p class="large" style="margin-top:48px;">The training had gone in. The fitness was there. But during the race, <span class="highlight">his stomach shut down.</span> The gels he'd relied on all season stopped working. Discomfort became pain. Pain became crisis. He crossed the line and collapsed.</p>
 
-    <p class="large">Lying in the medical tent, Eric made two promises to his wife Karine. First: <span class="highlight">no more Ironman.</span> Then the Poulin family moved from Canada to Australia, where coastal mornings, sunrise cyclists and pre-dawn running clubs slowly gave him back the sport he loved.</p>
+    <p class="large">Lying in the medical tent, Eric made two promises to his wife Karine. First: <span class="highlight">no more Ironman.</span> Then the Poulin family moved from Canada to Australia.</p>
 
-    <p class="large">The second promise: <span class="highlight">if he raced again, he'd fuel differently.</span> Or he'd build it himself.</p>
+    <p class="large">Australia gave him back the sport. Sunrise swim squads. Pre-dawn bunch rides. Coastal runs where cafés are already pouring espressos by 6am. Triathlon clubs where the effort is hard but the company is the whole point. <span class="highlight">Where "a little better you, each day" matters more than the watts on the bike computer.</span> The joy of endurance came back — not the grinding, over-caffeinated, engineered version. The original one.</p>
+
+    <p class="large">The second promise came next: <span class="highlight">if he raced again, he'd fuel differently.</span> Or he'd build it himself.</p>
 
     <p class="large">The answer had been growing in his home country all along. <span class="highlight">Certified organic maple syrup</span> — tapped from Canadian forests, low glycemic, naturally electrolyte-rich, gentle on the gut that modern gels had punished. He combined it with just enough of what the body actually needs: clean carbohydrates, real salt, a careful measure of natural caffeine. <strong>Nothing synthetic. Nothing artificial. Nothing apologized for.</strong></p>
 
@@ -1091,7 +1219,7 @@
     <div class="pack-pair-stage">
       <div class="pack-pair-stage-header">
         <span>THE CAFFEINE SYSTEM</span>
-        <span>LIGHT · CAFFEINE &nbsp;·&nbsp; DARK · FREE</span>
+        <span>3 FLAVOURS · ONE MISSION</span>
       </div>
       <div class="pack-pair">
 
@@ -1131,31 +1259,45 @@
             <text x="140" y="288" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" fill="#7A7165" text-anchor="middle">single origin</text>
             <text x="140" y="310" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#1A1715" text-anchor="middle" letter-spacing="3">MAPLE · COFFEE</text>
             <!-- HERO: 35 big, g subordinate, CHO bold -->
-            <text x="140" y="460" font-family="Cormorant Garamond, serif" font-size="150" font-weight="500" fill="#1A1715" text-anchor="middle" letter-spacing="-6">35</text>
+            <text x="140" y="460" font-family="Cormorant Garamond, serif" font-size="150" font-weight="500" fill="#1A1715" text-anchor="middle" letter-spacing="-6">41</text>
             <text x="205" y="460" font-family="Cormorant Garamond, serif" font-size="64" font-weight="500" fill="#1A1715" letter-spacing="-2">g</text>
             <text x="140" y="488" font-family="JetBrains Mono, monospace" font-size="14" font-weight="800" fill="#1A1715" text-anchor="middle" letter-spacing="1.5">CHO</text>
             <line x1="112" y1="520" x2="168" y2="520" stroke="#C85A1E" stroke-width="0.8"/>
-            <text x="140" y="548" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#C85A1E" text-anchor="middle" letter-spacing="3.5">30MG CAFFEINE</text>
+            <!-- Caffeine pill: filled terracotta badge -->
+            <rect x="68" y="532" width="144" height="28" rx="3" fill="#C85A1E"/>
+            <text x="140" y="550" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#F4EFE5" text-anchor="middle" letter-spacing="2.5">CAFFEINE 30mg</text>
             <text x="140" y="586" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" fill="#7A7165" text-anchor="middle" letter-spacing="2.5">NOTES</text>
             <text x="140" y="605" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" fill="#1A1715" text-anchor="middle">maple · espresso · clean finish</text>
 
             <text x="140" y="635" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" fill="#7A7165" text-anchor="middle" letter-spacing="3">CLEAN · SIMPLE · EFFECTIVE</text>
 
-            <g transform="translate(140, 678)">
-              <circle cx="0" cy="0" r="30" fill="#C85A1E"/>
-              <circle cx="0" cy="0" r="24" fill="#F4EFE5" stroke="#C85A1E" stroke-width="0.6"/>
-              <svg x="-9" y="-17" width="18" height="18"><use href="#leaf" fill="#C85A1E"/></svg>
-              <text x="0" y="8" font-family="Cormorant Garamond, serif" font-size="7.5" font-weight="600" fill="#C85A1E" text-anchor="middle" font-style="italic">canadian</text>
-              <text x="0" y="17" font-family="Cormorant Garamond, serif" font-size="7.5" font-weight="600" fill="#C85A1E" text-anchor="middle" font-style="italic">organic</text>
+            <!-- AUSTRALIAN CERTIFIED ORGANIC — "Bud" style stamp -->
+            <g transform="translate(140, 670)">
+              <circle cx="0" cy="0" r="24" fill="none" stroke="#C85A1E" stroke-width="1.2"/>
+              <circle cx="0" cy="0" r="20.5" fill="none" stroke="#C85A1E" stroke-width="0.4"/>
+              <path id="sysLightBudTop" d="M -16 0 A 16 16 0 0 1 16 0" fill="none"/>
+              <text font-family="Inter, sans-serif" font-size="4.8" font-weight="700" fill="#C85A1E" letter-spacing="1">
+                <textPath href="#sysLightBudTop" startOffset="50%" text-anchor="middle">AUSTRALIAN CERTIFIED</textPath>
+              </text>
+              <path id="sysLightBudBot" d="M -14 2 A 14 14 0 0 0 14 2" fill="none"/>
+              <text font-family="Inter, sans-serif" font-size="4.8" font-weight="700" fill="#C85A1E" letter-spacing="1">
+                <textPath href="#sysLightBudBot" startOffset="50%" text-anchor="middle">ORGANIC</textPath>
+              </text>
+              <g transform="translate(0, 0)">
+                <ellipse cx="0" cy="2" rx="3.2" ry="4" fill="#C85A1E"/>
+                <path d="M -0.8 -1.5 Q -5 -4 -5.8 -0.5 Q -3.5 0.5 -0.8 -1.5 Z" fill="#C85A1E"/>
+                <path d="M 0.8 -1.5 Q 5 -4 5.8 -0.5 Q 3.5 0.5 0.8 -1.5 Z" fill="#C85A1E"/>
+                <path d="M 0 -2 L -0.4 -5 Q 0 -6 0.4 -5 L 0 -2 Z" fill="#C85A1E"/>
+              </g>
             </g>
 
-            <text x="140" y="700" font-family="JetBrains Mono, monospace" font-size="6" fill="#B5A893" text-anchor="middle" letter-spacing="1.5">50g · 1.76oz · GUT-FRIENDLY</text>
+            <text x="140" y="705" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600" fill="#5A5048" text-anchor="middle" letter-spacing="1.8">50g · 1.76oz · GUT-FRIENDLY</text>
             <rect x="15" y="18" width="250" height="692" rx="5" fill="url(#shineLightSys)"/>
           </svg>
           <div class="pack-caption">
             <span class="pack-tag">CAFFEINATED</span>
             <div class="pack-name">Maple · Coffee</div>
-            <div class="pack-spec">35g CHO · 30mg caffeine · 50g</div>
+            <div class="pack-spec">41g CHO · 30mg caffeine · 50g</div>
           </div>
         </div>
 
@@ -1170,7 +1312,7 @@
               </filter>
               <filter id="berryGrainSys">
                 <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="14"/>
-                <feColorMatrix values="0 0 0 0 0.48  0 0 0 0 0.16  0 0 0 0 0.22  0 0 0 0.06 0"/>
+                <feColorMatrix values="0 0 0 0 0.831  0 0 0 0 0.231  0 0 0 0 0.333  0 0 0 0.08 0"/>
                 <feComposite in2="SourceGraphic" operator="in"/>
               </filter>
               <linearGradient id="shineDarkSys" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -1183,9 +1325,9 @@
             <line x1="118" y1="14" x2="162" y2="14" stroke="#B5A893" stroke-width="0.4" stroke-dasharray="2,1.5"/>
             <rect x="15" y="18" width="250" height="692" rx="5" fill="#1A1410"/>
             <rect x="15" y="18" width="250" height="692" rx="5" fill="#1A1410" filter="url(#grainDarkSys)" opacity="0.7"/>
-            <path d="M 15 18 L 265 18 L 265 110 L 15 110 Z" fill="#7A2838"/>
-            <path d="M 15 18 L 265 18 L 265 110 L 15 110 Z" fill="#7A2838" filter="url(#berryGrainSys)" opacity="0.5"/>
-            <text x="140" y="70" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" fill="#F4EFE5" text-anchor="middle" letter-spacing="3.5">FAMILY · RECIPE · NO.03</text>
+            <path d="M 15 18 L 265 18 L 265 110 L 15 110 Z" fill="#D43B55"/>
+            <path d="M 15 18 L 265 18 L 265 110 L 15 110 Z" fill="#D43B55" filter="url(#berryGrainSys)" opacity="0.5"/>
+            <text x="140" y="70" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" fill="#F4EFE5" text-anchor="middle" letter-spacing="3.5">FAMILY · RECIPE · NO.02</text>
             <text x="140" y="91" font-family="Cormorant Garamond, serif" font-size="11" font-style="italic" fill="#F4EFE5" text-anchor="middle" opacity="0.85">tapped in canada · fueled in australia</text>
             <svg x="112" y="142" width="56" height="60" preserveAspectRatio="xMidYMid meet">
               <use href="#leaf" fill="#EADBC0"/>
@@ -1193,34 +1335,124 @@
             <text x="140" y="246" font-family="Cormorant Garamond, serif" font-size="28" font-weight="500" fill="#F4EFE5" text-anchor="middle" letter-spacing="-0.4">mapleROO</text>
             <line x1="100" y1="264" x2="180" y2="264" stroke="#3A2F25" stroke-width="0.6"/>
             <text x="140" y="288" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" fill="#A39B8A" text-anchor="middle">single origin</text>
-            <text x="140" y="310" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#F4EFE5" text-anchor="middle" letter-spacing="3">WILD · BERRY</text>
+            <text x="140" y="310" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#F4EFE5" text-anchor="middle" letter-spacing="3">MAPLE · RASPBERRY</text>
             <!-- HERO: 35 big, g subordinate, CHO bold -->
-            <text x="140" y="460" font-family="Cormorant Garamond, serif" font-size="150" font-weight="500" fill="#F4EFE5" text-anchor="middle" letter-spacing="-6">35</text>
+            <text x="140" y="460" font-family="Cormorant Garamond, serif" font-size="150" font-weight="500" fill="#F4EFE5" text-anchor="middle" letter-spacing="-6">41</text>
             <text x="205" y="460" font-family="Cormorant Garamond, serif" font-size="64" font-weight="500" fill="#F4EFE5" letter-spacing="-2">g</text>
             <text x="140" y="488" font-family="JetBrains Mono, monospace" font-size="14" font-weight="800" fill="#F4EFE5" text-anchor="middle" letter-spacing="1.5">CHO</text>
-            <line x1="112" y1="520" x2="168" y2="520" stroke="#A84254" stroke-width="0.8"/>
-            <text x="140" y="548" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#A39B8A" text-anchor="middle" letter-spacing="3.5">CAFFEINE FREE</text>
+            <line x1="112" y1="520" x2="168" y2="520" stroke="#E55979" stroke-width="0.8"/>
+            <!-- Caffeine-free pill: outlined muted badge -->
+            <rect x="68" y="532" width="144" height="28" rx="3" fill="none" stroke="#A39B8A" stroke-width="0.9"/>
+            <text x="140" y="550" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#A39B8A" text-anchor="middle" letter-spacing="2.5">CAFFEINE FREE</text>
             <text x="140" y="586" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" fill="#8A8175" text-anchor="middle" letter-spacing="2.5">NOTES</text>
-            <text x="140" y="605" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" fill="#F4EFE5" text-anchor="middle">wild berry · citrus · bright finish</text>
+            <text x="140" y="605" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" fill="#F4EFE5" text-anchor="middle">raspberry · maple · real fruit finish</text>
 
             <text x="140" y="635" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" fill="#A39B8A" text-anchor="middle" letter-spacing="3">CLEAN · SIMPLE · EFFECTIVE</text>
 
-            <!-- AUSTRALIAN-ORGANIC-STYLE STAMP, inverted for dark pack -->
-            <g transform="translate(140, 678)">
-              <circle cx="0" cy="0" r="30" fill="#EADBC0"/>
-              <circle cx="0" cy="0" r="24" fill="#1A1410" stroke="#EADBC0" stroke-width="0.6"/>
-              <svg x="-9" y="-17" width="18" height="18"><use href="#leaf" fill="#EADBC0"/></svg>
-              <text x="0" y="8" font-family="Cormorant Garamond, serif" font-size="7.5" font-weight="600" fill="#EADBC0" text-anchor="middle" font-style="italic">canadian</text>
-              <text x="0" y="17" font-family="Cormorant Garamond, serif" font-size="7.5" font-weight="600" fill="#EADBC0" text-anchor="middle" font-style="italic">organic</text>
+            <!-- AUSTRALIAN CERTIFIED ORGANIC — "Bud" style stamp, cream on espresso -->
+            <g transform="translate(140, 670)">
+              <circle cx="0" cy="0" r="24" fill="none" stroke="#EADBC0" stroke-width="1.2"/>
+              <circle cx="0" cy="0" r="20.5" fill="none" stroke="#EADBC0" stroke-width="0.4"/>
+              <path id="sysDarkBudTop" d="M -16 0 A 16 16 0 0 1 16 0" fill="none"/>
+              <text font-family="Inter, sans-serif" font-size="4.8" font-weight="700" fill="#EADBC0" letter-spacing="1">
+                <textPath href="#sysDarkBudTop" startOffset="50%" text-anchor="middle">AUSTRALIAN CERTIFIED</textPath>
+              </text>
+              <path id="sysDarkBudBot" d="M -14 2 A 14 14 0 0 0 14 2" fill="none"/>
+              <text font-family="Inter, sans-serif" font-size="4.8" font-weight="700" fill="#EADBC0" letter-spacing="1">
+                <textPath href="#sysDarkBudBot" startOffset="50%" text-anchor="middle">ORGANIC</textPath>
+              </text>
+              <g transform="translate(0, 0)">
+                <ellipse cx="0" cy="2" rx="3.2" ry="4" fill="#EADBC0"/>
+                <path d="M -0.8 -1.5 Q -5 -4 -5.8 -0.5 Q -3.5 0.5 -0.8 -1.5 Z" fill="#EADBC0"/>
+                <path d="M 0.8 -1.5 Q 5 -4 5.8 -0.5 Q 3.5 0.5 0.8 -1.5 Z" fill="#EADBC0"/>
+                <path d="M 0 -2 L -0.4 -5 Q 0 -6 0.4 -5 L 0 -2 Z" fill="#EADBC0"/>
+              </g>
             </g>
 
-            <text x="140" y="700" font-family="JetBrains Mono, monospace" font-size="6" fill="#6B5E50" text-anchor="middle" letter-spacing="1.5">50g · 1.76oz · GUT-FRIENDLY</text>
+            <text x="140" y="705" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600" fill="#C4B8A0" text-anchor="middle" letter-spacing="1.8">50g · 1.76oz · GUT-FRIENDLY</text>
             <rect x="15" y="18" width="250" height="692" rx="5" fill="url(#shineDarkSys)"/>
           </svg>
           <div class="pack-caption">
             <span class="pack-tag">CAFFEINE FREE</span>
-            <div class="pack-name">Wild · Berry</div>
-            <div class="pack-spec">35g CHO · no caffeine · 50g</div>
+            <div class="pack-name">Maple · Raspberry</div>
+            <div class="pack-spec">41g CHO · caffeine free · 50g</div>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <!-- THIRD PACK = SALTED MAPLE               -->
+        <!-- Caramel header · espresso body · EXTRA SODIUM -->
+        <!-- ══════════════════════════════════════ -->
+        <div class="pack-wrap">
+          <svg class="pack" viewBox="0 0 280 720" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <filter id="grainDarkSalt">
+                <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="22"/>
+                <feColorMatrix values="0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.06  0 0 0 0.05 0"/>
+                <feComposite in2="SourceGraphic" operator="in"/>
+              </filter>
+              <filter id="caramelGrain">
+                <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="19"/>
+                <feColorMatrix values="0 0 0 0 0.784  0 0 0 0 0.522  0 0 0 0 0.220  0 0 0 0.08 0"/>
+                <feComposite in2="SourceGraphic" operator="in"/>
+              </filter>
+              <linearGradient id="shineDarkSalt" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.05"/>
+                <stop offset="30%" stop-color="#ffffff" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#000000" stop-opacity="0.1"/>
+              </linearGradient>
+            </defs>
+            <path d="M 110 0 L 170 0 L 170 18 L 110 18 Z" fill="#F4EFE5"/>
+            <line x1="118" y1="14" x2="162" y2="14" stroke="#B5A893" stroke-width="0.4" stroke-dasharray="2,1.5"/>
+            <rect x="15" y="18" width="250" height="692" rx="5" fill="#1A1410"/>
+            <rect x="15" y="18" width="250" height="692" rx="5" fill="#1A1410" filter="url(#grainDarkSalt)" opacity="0.7"/>
+            <path d="M 15 18 L 265 18 L 265 110 L 15 110 Z" fill="#C88538"/>
+            <path d="M 15 18 L 265 18 L 265 110 L 15 110 Z" fill="#C88538" filter="url(#caramelGrain)" opacity="0.5"/>
+            <text x="140" y="56" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" fill="#F4EFE5" text-anchor="middle" letter-spacing="3.5">FAMILY · RECIPE · NO.03</text>
+            <text x="140" y="91" font-family="Cormorant Garamond, serif" font-size="11" font-style="italic" fill="#F4EFE5" text-anchor="middle" opacity="0.85">tapped in canada · fueled in australia</text>
+            <svg x="112" y="142" width="56" height="60" preserveAspectRatio="xMidYMid meet">
+              <use href="#leaf" fill="#EADBC0"/>
+            </svg>
+            <text x="140" y="246" font-family="Cormorant Garamond, serif" font-size="28" font-weight="500" fill="#F4EFE5" text-anchor="middle" letter-spacing="-0.4">mapleROO</text>
+            <line x1="100" y1="264" x2="180" y2="264" stroke="#3A2F25" stroke-width="0.6"/>
+            <text x="140" y="288" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" fill="#A39B8A" text-anchor="middle">single origin</text>
+            <text x="140" y="310" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#F4EFE5" text-anchor="middle" letter-spacing="3">SALTED · MAPLE</text>
+            <text x="140" y="460" font-family="Cormorant Garamond, serif" font-size="150" font-weight="500" fill="#F4EFE5" text-anchor="middle" letter-spacing="-6">41</text>
+            <text x="205" y="460" font-family="Cormorant Garamond, serif" font-size="64" font-weight="500" fill="#F4EFE5" letter-spacing="-2">g</text>
+            <text x="140" y="488" font-family="JetBrains Mono, monospace" font-size="12" font-weight="800" fill="#F4EFE5" text-anchor="middle" letter-spacing="1.5">CHO</text>
+            <line x1="112" y1="520" x2="168" y2="520" stroke="#D9A15E" stroke-width="0.8"/>
+            <!-- Dual pill: filled caramel SODIUM pill (the key differentiator) -->
+            <rect x="68" y="532" width="144" height="28" rx="3" fill="#C88538"/>
+            <text x="140" y="550" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#F4EFE5" text-anchor="middle" letter-spacing="2.5">EXTRA SODIUM</text>
+            <text x="140" y="586" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" fill="#8A8175" text-anchor="middle" letter-spacing="2.5">NOTES</text>
+            <text x="140" y="605" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" fill="#F4EFE5" text-anchor="middle">sea salt · maple · hot-weather fuel</text>
+            <text x="140" y="635" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" fill="#A39B8A" text-anchor="middle" letter-spacing="3">CLEAN · SIMPLE · EFFECTIVE</text>
+            <!-- AUSTRALIAN CERTIFIED ORGANIC Bud stamp — cream on espresso -->
+            <g transform="translate(140, 670)">
+              <circle cx="0" cy="0" r="24" fill="none" stroke="#EADBC0" stroke-width="1.2"/>
+              <circle cx="0" cy="0" r="20.5" fill="none" stroke="#EADBC0" stroke-width="0.4"/>
+              <path id="sysSaltedBudTop" d="M -16 0 A 16 16 0 0 1 16 0" fill="none"/>
+              <text font-family="Inter, sans-serif" font-size="4.8" font-weight="700" fill="#EADBC0" letter-spacing="1">
+                <textPath href="#sysSaltedBudTop" startOffset="50%" text-anchor="middle">AUSTRALIAN CERTIFIED</textPath>
+              </text>
+              <path id="sysSaltedBudBot" d="M -14 2 A 14 14 0 0 0 14 2" fill="none"/>
+              <text font-family="Inter, sans-serif" font-size="4.8" font-weight="700" fill="#EADBC0" letter-spacing="1">
+                <textPath href="#sysSaltedBudBot" startOffset="50%" text-anchor="middle">ORGANIC</textPath>
+              </text>
+              <g transform="translate(0, 0)">
+                <ellipse cx="0" cy="2" rx="3.2" ry="4" fill="#EADBC0"/>
+                <path d="M -0.8 -1.5 Q -5 -4 -5.8 -0.5 Q -3.5 0.5 -0.8 -1.5 Z" fill="#EADBC0"/>
+                <path d="M 0.8 -1.5 Q 5 -4 5.8 -0.5 Q 3.5 0.5 0.8 -1.5 Z" fill="#EADBC0"/>
+                <path d="M 0 -2 L -0.4 -5 Q 0 -6 0.4 -5 L 0 -2 Z" fill="#EADBC0"/>
+              </g>
+            </g>
+            <text x="140" y="705" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600" fill="#C4B8A0" text-anchor="middle" letter-spacing="1.8">50g · 1.76oz · GUT-FRIENDLY</text>
+            <rect x="15" y="18" width="250" height="692" rx="5" fill="url(#shineDarkSalt)"/>
+          </svg>
+          <div class="pack-caption">
+            <span class="pack-tag">EXTRA SODIUM</span>
+            <div class="pack-name">Salted · Maple</div>
+            <div class="pack-spec">41g CHO · extra sodium · hot-weather fuel</div>
           </div>
         </div>
 
@@ -1228,35 +1460,28 @@
     </div>
 
     <!-- SKU variants — leaf colour per flavour -->
-    <h4 style="margin-top:80px; margin-bottom:20px;">SKU System · One mark, four flavours</h4>
+    <h4 style="margin-top:80px; margin-bottom:20px;">SKU System · One mark, three flavours</h4>
     <div class="variants-grid">
       <div class="variant-card">
         <div class="variant-leaf">
           <svg viewBox="0 0 382 392"><use href="#leaf" fill="#C85A1E"/></svg>
         </div>
         <div class="flavour">Maple · Coffee</div>
-        <div class="hex">Caffeinated · Light</div>
+        <div class="hex">41g CHO · 30mg caffeine · Light pack</div>
       </div>
       <div class="variant-card">
         <div class="variant-leaf">
-          <svg viewBox="0 0 382 392"><use href="#leaf" fill="#7A2838"/></svg>
+          <svg viewBox="0 0 382 392"><use href="#leaf" fill="#D43B55"/></svg>
         </div>
-        <div class="flavour">Wild · Berry</div>
-        <div class="hex">Caffeine free · Dark</div>
+        <div class="flavour">Maple · Raspberry</div>
+        <div class="hex">41g CHO · caffeine free · Dark pack</div>
       </div>
       <div class="variant-card">
         <div class="variant-leaf">
-          <svg viewBox="0 0 382 392"><use href="#leaf" fill="#2F4A36"/></svg>
+          <svg viewBox="0 0 382 392"><use href="#leaf" fill="#C88538"/></svg>
         </div>
-        <div class="flavour">Pine · Lemon</div>
-        <div class="hex">Caffeine free · Dark</div>
-      </div>
-      <div class="variant-card">
-        <div class="variant-leaf">
-          <svg viewBox="0 0 382 392"><use href="#leaf" fill="#B8851F"/></svg>
-        </div>
-        <div class="flavour">Honey · Ginger</div>
-        <div class="hex">Caffeinated · Light</div>
+        <div class="flavour">Salted Maple</div>
+        <div class="hex">41g CHO · extra sodium · caffeine free</div>
       </div>
     </div>
 
@@ -1265,7 +1490,7 @@
       <div class="swatch"><div class="swatch-chip" style="background:#F4EFE5;"></div><div class="swatch-name">Paper</div><div class="swatch-code">#F4EFE5</div></div>
       <div class="swatch"><div class="swatch-chip" style="background:#1A1715;"></div><div class="swatch-name">Ink</div><div class="swatch-code">#1A1715</div></div>
       <div class="swatch"><div class="swatch-chip" style="background:#C85A1E;"></div><div class="swatch-name">Maple</div><div class="swatch-code">#C85A1E</div></div>
-      <div class="swatch"><div class="swatch-chip" style="background:#7A2838;"></div><div class="swatch-name">Berry</div><div class="swatch-code">#7A2838</div></div>
+      <div class="swatch"><div class="swatch-chip" style="background:#D43B55;"></div><div class="swatch-name">Raspberry</div><div class="swatch-code">#D43B55</div></div>
       <div class="swatch"><div class="swatch-chip" style="background:#2F4A36;"></div><div class="swatch-name">Pine</div><div class="swatch-code">#2F4A36</div></div>
       <div class="swatch"><div class="swatch-chip" style="background:#B8851F;"></div><div class="swatch-name">Ochre</div><div class="swatch-code">#B8851F</div></div>
     </div>
@@ -1295,7 +1520,7 @@
       </div>
       <div class="positioning-grid">
         <h4>The Target</h4>
-        <div class="positioning-content">The serious endurance athlete who has outgrown candy fuel. Cares about what's in the pack, where it's from, and how they'll feel tomorrow morning.</div>
+        <div class="positioning-content">The swim-bike-run crowd who live the multisport life, not just race it. The serious endurance athlete who has outgrown candy fuel. Cares about what's in the pack, where it's from, and <em>how they'll feel tomorrow morning.</em></div>
       </div>
       <div class="positioning-grid">
         <h4>The Truth</h4>
