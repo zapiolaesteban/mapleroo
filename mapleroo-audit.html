@@ -1,0 +1,2443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#FAF7EE" />
+<title>Mapleroo — FMCG Brand Audit · Pink Dog Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   PINK DOG STUDIO × MAPLEROO BRAND AUDIT
+   Editorial agency-deck aesthetic
+   ═══════════════════════════════════════════ */
+:root {
+  /* PINK DOG BRAND PALETTE */
+  --grape: #3B1A60;           /* primary purple */
+  --grape-deep: #2A1147;      /* darker purple */
+  --grape-soft: #6B4A8C;      /* muted purple */
+  --lime: #D4FF3D;            /* highlight lime */
+  --lime-deep: #B8E61C;       /* lime accent darker */
+
+  --paper: #FAF7EE;           /* warm off-white */
+  --paper-warm: #F2EDDD;      /* deeper paper */
+  --paper-cool: #ECE6D2;      /* card cream */
+
+  --ink: #1A0F2E;             /* near-black, purple-tinged */
+  --ink-soft: #2C1F45;
+  --muted: #6B6072;
+  --muted-deep: #4A3F55;
+  --rule: #D8D0C0;            /* hairline rule */
+
+  --critical: #C8442B;        /* friction red */
+  --warning: #D4881C;         /* warning amber */
+  --positive: #4A8C3A;        /* positive green */
+
+  --shadow: rgba(26, 15, 46, 0.08);
+  --shadow-md: rgba(26, 15, 46, 0.14);
+  --shadow-lg: rgba(26, 15, 46, 0.22);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.serif {
+  font-family: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
+}
+.mono {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+.container-narrow { max-width: 880px; margin: 0 auto; padding: 0 40px; }
+
+/* ═══════════════════════════════════════════
+   GLOBAL TEXTURE — subtle paper grain
+   ═══════════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+/* ═══════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════ */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule);
+}
+nav .container {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 40px;
+}
+.nav-brand {
+  display: flex; align-items: baseline; gap: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--grape);
+  letter-spacing: -0.01em;
+}
+.nav-brand .studio-pill {
+  background: var(--lime);
+  padding: 2px 10px 3px;
+  border-radius: 100px;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--grape);
+  display: inline-block;
+}
+.nav-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nav-meta strong { color: var(--grape); margin-left: 8px; font-weight: 600; }
+nav ul { display: flex; gap: 22px; list-style: none; }
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+nav a:hover { color: var(--grape); }
+nav a:hover::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -6px;
+  height: 6px; background: var(--lime);
+  border-radius: 100px;
+  z-index: -1;
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════ */
+.hero {
+  padding: 100px 0 80px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute;
+  top: -200px; right: -150px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--lime) 25%, transparent) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--grape);
+  margin-bottom: 32px;
+  display: flex; align-items: center; gap: 16px;
+}
+.eyebrow::before {
+  content: ''; display: inline-block;
+  width: 32px; height: 8px;
+  background: var(--lime);
+  border-radius: 100px;
+}
+.hero h1 {
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  margin-bottom: 36px;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--grape);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+.hero h1 .lime-mark {
+  background: var(--lime);
+  padding: 0 16px 4px;
+  border-radius: 8px;
+  display: inline-block;
+  font-style: italic;
+  color: var(--grape);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+.hero-lede {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--muted-deep);
+  max-width: 560px;
+  margin-bottom: 48px;
+}
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+  max-width: 560px;
+}
+.hero-meta div {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero-meta div strong {
+  display: block;
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--grape);
+  letter-spacing: -0.01em;
+  text-transform: none;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════
+   HERO SCORE PANEL
+   ═══════════════════════════════════════════ */
+.score-panel {
+  background: var(--grape);
+  color: var(--paper);
+  padding: 48px 44px;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 30px 60px -20px var(--shadow-lg);
+}
+.score-panel::after {
+  content: '';
+  position: absolute;
+  top: -12px; right: 32px;
+  background: var(--lime);
+  color: var(--grape);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+.score-panel-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.score-panel-headline {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 28px;
+  line-height: 1.15;
+  margin-bottom: 32px;
+  font-weight: 400;
+  color: var(--paper);
+}
+.score-big {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.score-big-num {
+  font-family: "Fraunces", serif;
+  font-size: 92px;
+  font-weight: 300;
+  line-height: 0.9;
+  color: var(--lime);
+  letter-spacing: -0.04em;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+.score-big-denom {
+  font-family: "Fraunces", serif;
+  font-size: 36px;
+  color: rgba(250, 247, 238, 0.55);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+.score-classification {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--paper);
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+.score-classification strong {
+  color: var(--lime);
+  display: block;
+  font-size: 14px;
+  margin-top: 4px;
+  letter-spacing: 0.16em;
+}
+.score-bar {
+  height: 6px;
+  background: rgba(250, 247, 238, 0.18);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 18px;
+}
+.score-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--critical) 0%, var(--warning) 50%, var(--lime) 100%);
+  border-radius: 100px;
+  width: 0;
+  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.score-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: rgba(250, 247, 238, 0.55);
+}
+.score-tiers div { padding: 6px 0; border-top: 1px solid rgba(250, 247, 238, 0.15); }
+.score-tiers div.active { color: var(--lime); border-top-color: var(--lime); }
+
+/* ═══════════════════════════════════════════
+   EXECUTIVE SUMMARY
+   ═══════════════════════════════════════════ */
+.exec-summary {
+  background: var(--paper-warm);
+  padding: 80px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.section-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--grape);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-num::before {
+  content: ''; width: 24px; height: 1px;
+  background: var(--grape);
+  display: inline-block;
+}
+.section-headline {
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+.section-headline em {
+  font-style: italic;
+  color: var(--grape);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+.section-lede {
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--muted-deep);
+  max-width: 720px;
+  margin-bottom: 56px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+.summary-card {
+  background: var(--paper);
+  border-radius: 4px;
+  padding: 36px 32px;
+  position: relative;
+  border: 1px solid var(--rule);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -12px var(--shadow-md);
+}
+.summary-card-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grape);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.summary-card-num {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--grape);
+  font-weight: 400;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+}
+.summary-card-num.critical { color: var(--critical); }
+.summary-card-num.warning { color: var(--warning); }
+.summary-card h4 {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.summary-card p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--muted-deep);
+}
+
+/* TOP FRICTION FLAGS */
+.top-friction {
+  margin-top: 64px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 40px;
+}
+.top-friction h4 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grape);
+  margin-bottom: 28px;
+  font-weight: 600;
+}
+.top-friction-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 32px;
+  list-style: none;
+}
+.top-friction-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.flag-icon {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--critical);
+  color: var(--paper);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -2px;
+}
+.flag-icon.warn { background: var(--warning); }
+.flag-icon.medium { background: var(--grape-soft); }
+
+/* ═══════════════════════════════════════════
+   SECTION SHELL
+   ═══════════════════════════════════════════ */
+section.audit-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+section.audit-section:nth-of-type(even) {
+  background: var(--paper-warm);
+}
+
+/* ═══════════════════════════════════════════
+   3-SECOND CLARITY TEST
+   ═══════════════════════════════════════════ */
+.clarity-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+.clarity-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 32px 28px;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.clarity-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px -10px var(--shadow);
+}
+.clarity-card.span-2 { grid-column: span 2; }
+.clarity-q {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grape);
+  margin-bottom: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.clarity-q-num {
+  background: var(--lime);
+  color: var(--grape);
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 9px;
+  font-weight: 700;
+}
+.clarity-headline {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.clarity-headline em {
+  font-style: italic;
+  color: var(--grape);
+}
+.clarity-body {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--muted-deep);
+}
+.clarity-verdict {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 100px;
+}
+.verdict-pass { background: rgba(74, 140, 58, 0.12); color: var(--positive); }
+.verdict-warn { background: rgba(212, 136, 28, 0.12); color: var(--warning); }
+.verdict-fail { background: rgba(200, 68, 43, 0.12); color: var(--critical); }
+.verdict-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* PRICE COMPARISON CHART */
+.price-compare {
+  margin-top: 40px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 36px;
+}
+.price-compare-title {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grape);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.price-bar-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 80px;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.price-bar-row:last-child { border-bottom: none; }
+.price-bar-label {
+  font-family: "Fraunces", serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.price-bar-label small {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.price-bar-track {
+  height: 18px;
+  background: var(--paper-cool);
+  border-radius: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.price-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.price-bar-fill.maple { background: var(--grape); }
+.price-bar-fill.competitor { background: var(--grape-soft); opacity: 0.65; }
+.price-bar-amount {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: right;
+}
+
+/* ═══════════════════════════════════════════
+   PACKAGING / VISUAL HIERARCHY
+   ═══════════════════════════════════════════ */
+.checklist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 60px;
+  margin-top: 48px;
+}
+.checklist-block h3 {
+  font-family: "Fraunces", serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.checklist-block h3 em { font-style: italic; color: var(--grape); }
+.check-item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+  align-items: flex-start;
+}
+.check-icon {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.check-icon.yes { background: rgba(74, 140, 58, 0.18); color: var(--positive); }
+.check-icon.no  { background: rgba(200, 68, 43, 0.18); color: var(--critical); }
+.check-icon.mid { background: rgba(212, 136, 28, 0.18); color: var(--warning); }
+.check-text-q {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.check-text-a {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted-deep);
+}
+
+/* PULL QUOTE */
+.pullquote {
+  margin-top: 64px;
+  padding: 48px 56px;
+  background: var(--grape);
+  color: var(--paper);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.pullquote::before {
+  content: '"';
+  position: absolute;
+  top: -40px; left: 32px;
+  font-family: "Fraunces", serif;
+  font-size: 280px;
+  color: var(--lime);
+  opacity: 0.18;
+  font-style: italic;
+  line-height: 1;
+}
+.pullquote-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--lime);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+}
+.pullquote-text {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.35;
+  font-weight: 400;
+  position: relative;
+  max-width: 920px;
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+}
+.pullquote-text strong {
+  font-style: normal;
+  background: var(--lime);
+  color: var(--grape);
+  padding: 0 10px 2px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════════
+   ECOMMERCE SECTION — PageSpeed gauges
+   ═══════════════════════════════════════════ */
+.gauge-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 48px 0 24px;
+}
+.gauge-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+}
+.gauge-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.gauge-ring {
+  width: 130px; height: 130px;
+  margin: 0 auto 16px;
+  position: relative;
+}
+.gauge-ring svg {
+  width: 100%; height: 100%;
+  transform: rotate(-90deg);
+}
+.gauge-ring-bg {
+  fill: none;
+  stroke: var(--paper-cool);
+  stroke-width: 10;
+}
+.gauge-ring-fg {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 351.86;
+  stroke-dashoffset: 351.86;
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gauge-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+.gauge-num-val {
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.gauge-num-suffix {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+.gauge-platform {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+  text-transform: uppercase;
+  font-weight: 600;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ECOM CARDS — UX, Conversion, Product Page */
+.ecom-tabs {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.ecom-tab {
+  padding: 32px 28px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+.ecom-tab:last-child { border-right: none; }
+.ecom-tab-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--grape);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.ecom-tab h4 {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.ecom-tab h4 em { font-style: italic; color: var(--grape); }
+.ecom-tab .ecom-mini-score {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 18px;
+  font-family: "Fraunces", serif;
+}
+.ecom-mini-num {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--grape);
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+  font-style: italic;
+}
+.ecom-mini-denom {
+  font-size: 16px;
+  color: var(--muted);
+}
+.ecom-tab ul {
+  list-style: none;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.ecom-tab ul li {
+  padding: 8px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  gap: 8px;
+  color: var(--muted-deep);
+}
+.ecom-tab ul li:first-child { border-top: none; }
+.ecom-tab ul li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin-top: 7px;
+}
+.ecom-tab ul li.pos::before { background: var(--positive); }
+.ecom-tab ul li.neg::before { background: var(--critical); }
+.ecom-tab ul li.mid::before { background: var(--warning); }
+
+/* ═══════════════════════════════════════════
+   SEARCH PRESENCE — competitor positioning
+   ═══════════════════════════════════════════ */
+.search-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+}
+.search-rankings {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 36px 32px;
+}
+.search-rankings h4 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grape);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.rank-row {
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+}
+.rank-row:first-of-type { border-top: none; }
+.rank-query {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.rank-query::before {
+  content: '🔍';
+  margin-right: 8px;
+  font-style: normal;
+  filter: grayscale(0.6);
+}
+.rank-result {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.rank-result.win { background: rgba(74, 140, 58, 0.14); color: var(--positive); }
+.rank-result.mid { background: rgba(212, 136, 28, 0.14); color: var(--warning); }
+.rank-result.lose { background: rgba(200, 68, 43, 0.14); color: var(--critical); }
+.rank-note {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted-deep);
+  margin-top: 8px;
+}
+
+/* SEARCH PRESENCE GAPS */
+.search-gaps {
+  background: var(--grape-deep);
+  color: var(--paper);
+  border-radius: 4px;
+  padding: 36px 32px;
+  position: relative;
+}
+.search-gaps h4 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lime);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.gap-item {
+  padding: 16px 0;
+  border-top: 1px solid rgba(250, 247, 238, 0.15);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+}
+.gap-item:first-of-type { border-top: none; }
+.gap-item-label {
+  font-family: "Fraunces", serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--paper);
+}
+.gap-item-status {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lime);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.gap-item-status::before {
+  content: '×';
+  width: 18px; height: 18px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(212, 255, 61, 0.18);
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 1;
+}
+.gap-item-status.have::before {
+  content: '✓';
+  background: rgba(74, 140, 58, 0.4);
+  color: var(--lime);
+}
+.gap-diagnosis {
+  margin-top: 24px;
+  padding: 20px 22px;
+  background: rgba(212, 255, 61, 0.1);
+  border-left: 3px solid var(--lime);
+  border-radius: 0 4px 4px 0;
+}
+.gap-diagnosis-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--lime);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.gap-diagnosis-text {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--paper);
+}
+
+/* ═══════════════════════════════════════════
+   SOCIAL CHECK
+   ═══════════════════════════════════════════ */
+.social-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+  align-items: start;
+}
+.social-checks {
+  display: grid;
+  gap: 14px;
+}
+.social-check {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 24px;
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 20px 24px;
+}
+.social-check-label {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.social-check-finding {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted-deep);
+  max-width: 280px;
+  text-align: right;
+}
+.alignment-card {
+  background: var(--lime);
+  color: var(--grape);
+  border-radius: 4px;
+  padding: 36px 32px;
+  position: sticky;
+  top: 100px;
+}
+.alignment-card h4 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grape);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.alignment-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-top: 1px solid rgba(59, 26, 96, 0.18);
+  font-family: "Fraunces", serif;
+  font-size: 17px;
+  font-weight: 500;
+}
+.alignment-row:first-of-type { border-top: none; }
+.alignment-row span:last-child {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  background: var(--grape);
+  color: var(--lime);
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+.alignment-verdict {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 2px solid var(--grape);
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════
+   GROWTH FRICTION FLAGS
+   ═══════════════════════════════════════════ */
+.friction-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+.friction-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 28px 26px;
+  position: relative;
+  overflow: hidden;
+}
+.friction-card.flagged {
+  background: var(--grape);
+  color: var(--paper);
+  border-color: var(--grape);
+}
+.friction-card.flagged::after {
+  content: 'FLAG';
+  position: absolute;
+  top: 14px; right: 14px;
+  background: var(--lime);
+  color: var(--grape);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 100px;
+}
+.friction-icon {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.friction-card.flagged .friction-icon { color: var(--lime); }
+.friction-card h5 {
+  font-family: "Fraunces", serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.friction-card.flagged h5 { color: var(--paper); }
+.friction-card.flagged h5 em {
+  font-style: italic;
+  color: var(--lime);
+}
+.friction-card p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.friction-card.flagged p { color: rgba(250, 247, 238, 0.72); }
+
+/* ═══════════════════════════════════════════
+   FINAL SCORECARD — radar-ish bar chart
+   ═══════════════════════════════════════════ */
+.scorecard-section {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.scorecard-section::before {
+  content: ''; position: absolute;
+  top: -300px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(212, 255, 61, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.scorecard-section .section-num {
+  color: var(--lime);
+}
+.scorecard-section .section-num::before { background: var(--lime); }
+.scorecard-section .section-headline { color: var(--paper); }
+.scorecard-section .section-headline em { color: var(--lime); font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1; }
+.scorecard-section .section-lede { color: rgba(250, 247, 238, 0.72); }
+
+.scorecard-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 64px;
+  margin-top: 56px;
+  align-items: start;
+}
+.scorecard-bars {
+  display: grid;
+  gap: 18px;
+}
+.scorecard-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 70px;
+  gap: 24px;
+  align-items: center;
+}
+.score-label {
+  font-family: "Fraunces", serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+}
+.score-track {
+  height: 12px;
+  background: rgba(250, 247, 238, 0.08);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+.score-track::before {
+  content: '';
+  position: absolute;
+  left: 70%;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(250, 247, 238, 0.25);
+  z-index: 1;
+}
+.score-fill {
+  height: 100%;
+  border-radius: 100px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.score-fill.poor { background: var(--critical); }
+.score-fill.mid { background: var(--warning); }
+.score-fill.good { background: var(--lime); }
+.score-num {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--paper);
+  text-align: right;
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+.score-num em {
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(250, 247, 238, 0.5);
+  font-weight: 300;
+}
+
+/* TOTAL SCORE PANEL */
+.total-panel {
+  background: var(--lime);
+  color: var(--grape);
+  padding: 44px 36px;
+  border-radius: 4px;
+  position: sticky;
+  top: 100px;
+}
+.total-panel-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--grape);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.total-panel-display {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.total-num {
+  font-family: "Fraunces", serif;
+  font-size: 110px;
+  font-weight: 300;
+  color: var(--grape);
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+.total-denom {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 38px;
+  color: var(--grape-soft);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.total-classification {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--grape);
+  margin-bottom: 28px;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+.total-tiers {
+  border-top: 2px solid var(--grape);
+  padding-top: 24px;
+  display: grid;
+  gap: 10px;
+}
+.tier-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 14px;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--grape);
+  padding: 8px 0;
+  font-weight: 600;
+  opacity: 0.5;
+}
+.tier-row.active {
+  opacity: 1;
+  background: var(--grape);
+  color: var(--lime);
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+.tier-range {
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════
+   PRIORITY FIXES
+   ═══════════════════════════════════════════ */
+.fixes-section {
+  background: var(--paper);
+  padding: 100px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.fixes-list {
+  margin-top: 48px;
+  counter-reset: fix;
+}
+.fix-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 220px;
+  gap: 32px;
+  padding: 36px 0;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+  counter-increment: fix;
+}
+.fix-row:last-child { border-bottom: 1px solid var(--rule); }
+.fix-num {
+  font-family: "Fraunces", serif;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 0.9;
+  color: var(--grape);
+  letter-spacing: -0.04em;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+.fix-num::before {
+  content: counter(fix, decimal-leading-zero);
+}
+.fix-content h4 {
+  font-family: "Fraunces", serif;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.fix-content h4 em {
+  font-style: italic;
+  color: var(--grape);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+.fix-content p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted-deep);
+}
+.fix-meta {
+  display: grid;
+  gap: 12px;
+}
+.fix-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--paper-warm);
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+.fix-meta-row strong {
+  color: var(--grape);
+  font-weight: 700;
+}
+.fix-impact {
+  display: inline-block;
+  height: 6px; width: 100%;
+  border-radius: 100px;
+  background: var(--paper-cool);
+  position: relative;
+  max-width: 60px;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+.fix-impact-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  background: var(--grape);
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER / SIGN-OFF
+   ═══════════════════════════════════════════ */
+.signoff {
+  background: var(--grape-deep);
+  color: var(--paper);
+  padding: 100px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.signoff::before {
+  content: ''; position: absolute;
+  bottom: -200px; left: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(212, 255, 61, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.signoff-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: end;
+}
+.signoff h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  color: var(--paper);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+.signoff h2 em {
+  font-style: italic;
+  color: var(--lime);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+.signoff p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(250, 247, 238, 0.75);
+  max-width: 500px;
+}
+.signoff-stamp {
+  text-align: right;
+}
+.signoff-stamp-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--paper);
+  margin-bottom: 14px;
+}
+.signoff-stamp-brand .studio-pill {
+  background: var(--lime);
+  color: var(--grape);
+  padding: 2px 14px 4px;
+  border-radius: 100px;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 22px;
+}
+.signoff-stamp-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 238, 0.55);
+  line-height: 1.8;
+}
+
+footer {
+  padding: 32px 0; text-align: center;
+  background: var(--ink);
+  color: rgba(250, 247, 238, 0.55);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+footer span { color: var(--lime); margin: 0 8px; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 980px) {
+  .container, .container-narrow { padding: 0 24px; }
+  nav .container { padding: 14px 24px; flex-wrap: wrap; gap: 12px; }
+  nav ul { display: none; }
+  .nav-meta { font-size: 9px; }
+  .hero { padding: 60px 0 48px; }
+  .hero-content { grid-template-columns: 1fr; gap: 48px; }
+  .hero-meta { grid-template-columns: 1fr 1fr; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .top-friction-list { grid-template-columns: 1fr; }
+  .clarity-grid { grid-template-columns: 1fr; }
+  .clarity-card.span-2 { grid-column: span 1; }
+  .checklist-grid { grid-template-columns: 1fr; gap: 32px; }
+  .gauge-grid { grid-template-columns: 1fr 1fr; }
+  .ecom-tabs { grid-template-columns: 1fr; }
+  .ecom-tab { border-right: none; border-bottom: 1px solid var(--rule); }
+  .search-grid { grid-template-columns: 1fr; }
+  .social-grid { grid-template-columns: 1fr; }
+  .alignment-card { position: static; }
+  .friction-grid { grid-template-columns: 1fr 1fr; }
+  .scorecard-grid { grid-template-columns: 1fr; }
+  .scorecard-row { grid-template-columns: 130px 1fr 50px; gap: 12px; }
+  .score-label { font-size: 14px; }
+  .total-panel { position: static; }
+  .fix-row { grid-template-columns: 50px 1fr; gap: 18px; }
+  .fix-meta { grid-column: 1 / -1; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .fix-num { font-size: 44px; }
+  .signoff-content { grid-template-columns: 1fr; gap: 32px; }
+  .signoff-stamp { text-align: left; }
+  .pullquote { padding: 36px 28px; }
+  .price-bar-row { grid-template-columns: 1fr; gap: 8px; }
+  .audit-section { padding: 64px 0; }
+  .exec-summary { padding: 56px 0; }
+}
+
+@media (max-width: 560px) {
+  .friction-grid { grid-template-columns: 1fr; }
+  .scorecard-row { grid-template-columns: 100px 1fr 40px; gap: 10px; }
+  .score-num { font-size: 18px; }
+  .total-num { font-size: 84px; }
+}
+
+/* ═══════════════════════════════════════════
+   PRINT
+   ═══════════════════════════════════════════ */
+@media print {
+  nav { display: none; }
+  body::before { display: none; }
+  section { page-break-inside: avoid; }
+  .audit-section { padding: 40px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════════ -->
+<nav>
+  <div class="container">
+    <div class="nav-brand">
+      pink dog<span class="studio-pill">studio</span>
+    </div>
+    <div class="nav-meta">FMCG Brand Audit <strong>/ Mapleroo</strong></div>
+    <ul>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#clarity">Clarity</a></li>
+      <li><a href="#packaging">Packaging</a></li>
+      <li><a href="#ecom">eComm</a></li>
+      <li><a href="#search">Search</a></li>
+      <li><a href="#social">Social</a></li>
+      <li><a href="#friction">Friction</a></li>
+      <li><a href="#scorecard">Score</a></li>
+      <li><a href="#fixes">Fixes</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div>
+        <div class="eyebrow">FMCG Brand Audit / Sport Nutrition</div>
+        <h1>
+          Built for endurance.<br>
+          <span class="lime-mark">Brand</span> <em>still catching its breath.</em>
+        </h1>
+        <p class="hero-lede">
+          A premium-priced product wearing early-stage packaging. Real science underneath, real story behind, but the shop window is doing none of the selling. Here's what we found in 90 minutes — and where the real growth is sitting.
+        </p>
+        <div class="hero-meta">
+          <div>Brand<strong>Mapleroo</strong></div>
+          <div>Category<strong>Endurance Fuel</strong></div>
+          <div>Audited<strong>Q2 / 2026</strong></div>
+        </div>
+      </div>
+
+      <aside class="score-panel">
+        <div class="score-panel-eyebrow">Verdict</div>
+        <div class="score-panel-headline">Structural issues are <em>limiting growth.</em></div>
+        <div class="score-big">
+          <span class="score-big-num">50</span>
+          <span class="score-big-denom">/ 100</span>
+        </div>
+        <div class="score-classification">
+          Classification
+          <strong>Tier 3 — Structural</strong>
+        </div>
+        <div class="score-bar"><div class="score-bar-fill" style="width:50%"></div></div>
+        <div class="score-tiers">
+          <div class="active">&lt; 55<br>Structural</div>
+          <div>55–70<br>Scaling</div>
+          <div>70–100<br>Optimise</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     EXECUTIVE SUMMARY
+     ═══════════════════════════════════════════ -->
+<section class="exec-summary" id="summary">
+  <div class="container">
+    <div class="section-num">00 / Executive Summary</div>
+    <h2 class="section-headline">The shop window <em>doesn't match</em> the shelf.</h2>
+    <p class="section-lede">
+      Mapleroo sells a premium-priced product for serious endurance athletes — but the brand, packaging, and digital experience read as early-stage. The product is real. The story is real. The science is real. The presentation is what's holding it back.
+    </p>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-card-eyebrow">⊕ Premium Gap</div>
+        <div class="summary-card-num critical">$95.99</div>
+        <h4>Priced premium, packaged early-stage.</h4>
+        <p>A 24-pack of gels retails at $95.99 — competitor sets sit between $55–$70. The price is making the premium claim. The packaging isn't backing it up.</p>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-eyebrow">⊕ Site Performance</div>
+        <div class="summary-card-num critical">&lt; 46</div>
+        <h4>PageSpeed scores collapsing.</h4>
+        <p>Desktop and mobile performance below 46 in Google PageSpeed. SEO under 85. This directly affects rank, CPC, and bounce — every channel pays for it.</p>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-eyebrow">⊕ Story Gap</div>
+        <div class="summary-card-num warning">0</div>
+        <h4>"Australia" missing in action.</h4>
+        <p>The brand is called <em>Maple<strong>roo</strong></em>. The story anchors to Australia. The site shows neither Ironman, surf-coast, nor any visible Australian sporting culture.</p>
+      </div>
+    </div>
+
+    <div class="top-friction">
+      <h4>★ Top 6 friction flags</h4>
+      <ul class="top-friction-list">
+        <li><span class="flag-icon">!</span><span><strong>Premium claim unsupported.</strong> Packaging looks early-stage; price says premium.</span></li>
+        <li><span class="flag-icon">!</span><span><strong>Cluttered homepage.</strong> Too many competing messages above the fold.</span></li>
+        <li><span class="flag-icon warn">~</span><span><strong>Weak product photography.</strong> Generic, inconsistent, no Australian texture.</span></li>
+        <li><span class="flag-icon warn">~</span><span><strong>Trust signals buried.</strong> Reviews exist but easily missed on homepage.</span></li>
+        <li><span class="flag-icon warn">~</span><span><strong>No Google reviews / Shopping.</strong> Visibility is purely organic, ceiling is low.</span></li>
+        <li><span class="flag-icon medium">·</span><span><strong>Flavour system unclear.</strong> Salted Maple vs Maple+Coffee read too similar on shelf.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1 — 3-SECOND CLARITY TEST
+     ═══════════════════════════════════════════ -->
+<section class="audit-section" id="clarity">
+  <div class="container">
+    <div class="section-num">01 / Clarity Test</div>
+    <h2 class="section-headline">Three seconds. <em>Five questions.</em></h2>
+    <p class="section-lede">
+      Open the homepage. Don't scroll. Can a stranger tell what this is, who it's for, and why they should care — before they decide to bounce? This is the test every FMCG brand pays for, in conversion or in lost traffic.
+    </p>
+
+    <div class="clarity-grid">
+      <div class="clarity-card">
+        <div class="clarity-q">What is this product? <span class="clarity-q-num">Q 01</span></div>
+        <h3 class="clarity-headline">Clear it's a maple-based <em>energy product.</em></h3>
+        <p class="clarity-body">Above the fold only one product is introduced. Different athletes have different fuel needs — the homepage should hint at the full range so the right buyer keeps scrolling.</p>
+        <span class="clarity-verdict verdict-warn"><span class="verdict-dot"></span>Friction</span>
+      </div>
+
+      <div class="clarity-card">
+        <div class="clarity-q">Who is it for? <span class="clarity-q-num">Q 02</span></div>
+        <h3 class="clarity-headline">"Endurance athletes" — but <em>which ones?</em></h3>
+        <p class="clarity-body">If the product also serves trail runners, cyclists, surf-life-saving, ultra crowds, that needs to be on the homepage. Showing real athletes from those sports converts better than abstract claims.</p>
+        <span class="clarity-verdict verdict-warn"><span class="verdict-dot"></span>Friction</span>
+      </div>
+
+      <div class="clarity-card">
+        <div class="clarity-q">Why is it different? <span class="clarity-q-num">Q 03</span></div>
+        <h3 class="clarity-headline">Maple is the answer — <em>buried below fold.</em></h3>
+        <p class="clarity-body">The maple-syrup story is the differentiator and it's strong. But the benefits should be the first thing a visitor sees. Right now they have to scroll to find the reason to care.</p>
+        <span class="clarity-verdict verdict-fail"><span class="verdict-dot"></span>Below fold</span>
+      </div>
+
+      <div class="clarity-card">
+        <div class="clarity-q">Premium or budget? <span class="clarity-q-num">Q 04</span></div>
+        <h3 class="clarity-headline">Price says premium. <em>Brand says startup.</em></h3>
+        <p class="clarity-body">A 24-pack of gels at $95.99 (pre-discount) sits well above competitors at $55–$70. The packaging and digital brand don't match that positioning. The mismatch creates friction at checkout.</p>
+        <span class="clarity-verdict verdict-fail"><span class="verdict-dot"></span>Mismatch</span>
+      </div>
+
+      <div class="clarity-card span-2">
+        <div class="clarity-q">Would I trust this brand with my money? <span class="clarity-q-num">Q 05</span></div>
+        <h3 class="clarity-headline">Not yet. The site doesn't <em>close the sale.</em></h3>
+        <p class="clarity-body">Trust signals (reviews, athlete proof, science backing) are present somewhere — but easy to miss in homepage clutter. The brand doesn't visually justify the premium price point. For a first-time visitor weighing $95 against a known competitor, the deciding push isn't there.</p>
+        <span class="clarity-verdict verdict-fail"><span class="verdict-dot"></span>Critical Friction</span>
+      </div>
+    </div>
+
+    <!-- PRICE COMPARE -->
+    <div class="price-compare">
+      <div class="price-compare-title">⊕ Price positioning · 24-pack gels (AUD)</div>
+      <div class="price-bar-row">
+        <div class="price-bar-label">Mapleroo<small>· at full retail</small></div>
+        <div class="price-bar-track"><div class="price-bar-fill maple" style="width:96%"></div></div>
+        <div class="price-bar-amount">$95.99</div>
+      </div>
+      <div class="price-bar-row">
+        <div class="price-bar-label">Category top<small>· competitor</small></div>
+        <div class="price-bar-track"><div class="price-bar-fill competitor" style="width:70%"></div></div>
+        <div class="price-bar-amount">$70.00</div>
+      </div>
+      <div class="price-bar-row">
+        <div class="price-bar-label">Category low<small>· competitor</small></div>
+        <div class="price-bar-track"><div class="price-bar-fill competitor" style="width:55%"></div></div>
+        <div class="price-bar-amount">$55.00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2 — PACKAGING & VISUAL HIERARCHY
+     ═══════════════════════════════════════════ -->
+<section class="audit-section" id="packaging">
+  <div class="container">
+    <div class="section-num">02 / Packaging &amp; Brand Hierarchy</div>
+    <h2 class="section-headline">The brand is the <em>biggest gap.</em></h2>
+    <p class="section-lede">
+      The pack uses the space efficiently but doesn't earn the premium. The biggest single thing letting Mapleroo down is the brand identity itself — it doesn't reflect the quality of what's inside the pack, or the price on the shelf.
+    </p>
+
+    <div class="checklist-grid">
+      <div class="checklist-block">
+        <h3>Visual <em>hierarchy.</em></h3>
+
+        <div class="check-item">
+          <div class="check-icon yes">✓</div>
+          <div>
+            <div class="check-text-q">Brand name dominant?</div>
+            <div class="check-text-a">Logo is clear and present on every variant.</div>
+          </div>
+        </div>
+
+        <div class="check-item">
+          <div class="check-icon yes">✓</div>
+          <div>
+            <div class="check-text-q">Product type clear?</div>
+            <div class="check-text-a">Product name reads cleanly at retail distance.</div>
+          </div>
+        </div>
+
+        <div class="check-item">
+          <div class="check-icon no">×</div>
+          <div>
+            <div class="check-text-q">Flavour clearly differentiated?</div>
+            <div class="check-text-a">Salted Maple and Maple+Coffee variants look near-identical. Flavour-coding system is too quiet to navigate at shelf.</div>
+          </div>
+        </div>
+
+        <div class="check-item">
+          <div class="check-icon mid">~</div>
+          <div>
+            <div class="check-text-q">Cluttered, or earning the space?</div>
+            <div class="check-text-a">Not cluttered — but no benefits or selling points are highlighted on pack. The space is unused, not optimised.</div>
+          </div>
+        </div>
+
+        <div class="check-item">
+          <div class="check-icon mid">~</div>
+          <div>
+            <div class="check-text-q">Adequate contrast?</div>
+            <div class="check-text-a">Sufficient on most packs. The energy drink SKU has visible contrast issues that affect legibility.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="checklist-block">
+        <h3>SKU system &amp; <em>premium signal.</em></h3>
+
+        <div class="check-item">
+          <div class="check-icon mid">~</div>
+          <div>
+            <div class="check-text-q">Variants read as a system?</div>
+            <div class="check-text-a">Yes — there is a system, and it's consistent. But the system itself doesn't convey the nature of the product or earn its premium price.</div>
+          </div>
+        </div>
+
+        <div class="check-item">
+          <div class="check-icon no">×</div>
+          <div>
+            <div class="check-text-q">Price matches perceived quality?</div>
+            <div class="check-text-a">Prices sit at the top of the category; packaging perception sits at the bottom. The two are out of sync.</div>
+          </div>
+        </div>
+
+        <div class="check-item">
+          <div class="check-icon no">×</div>
+          <div>
+            <div class="check-text-q">Retail-mature, or early-stage?</div>
+            <div class="check-text-a">Reads as early-stage. To support the premium positioning, the pack needs to do more — both visually and on the benefit story.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <div class="pullquote-eyebrow">⊕ The single biggest finding</div>
+      <p class="pullquote-text">
+        The biggest thing letting down the brand <strong>is the brand itself.</strong> Mapleroo is anchored to Australia in name and story — but the website, photography and pack design say nothing about Ironman, surf-life-saving, or Australian endurance culture. Lean into the name. Own the story. Show the athlete.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3 — ECOMMERCE
+     ═══════════════════════════════════════════ -->
+<section class="audit-section" id="ecom">
+  <div class="container">
+    <div class="section-num">03 / eCommerce Environment</div>
+    <h2 class="section-headline">Site speed is <em>silently bleeding</em> revenue.</h2>
+    <p class="section-lede">
+      PageSpeed scores under 46 affect more than nerd metrics — they hit Google rank, ad CPC, mobile bounce, and add-to-cart rate. Every dollar spent on traffic gets a smaller share of conversions back. Fix the foundation, then everything else compounds.
+    </p>
+
+    <div class="gauge-grid">
+      <div class="gauge-card">
+        <div class="gauge-label">Desktop · Performance</div>
+        <div class="gauge-ring">
+          <svg viewBox="0 0 130 130">
+            <circle class="gauge-ring-bg" cx="65" cy="65" r="56"/>
+            <circle class="gauge-ring-fg" cx="65" cy="65" r="56" stroke="#C8442B" data-pct="42"/>
+          </svg>
+          <div class="gauge-num"><span class="gauge-num-val" style="color:#C8442B">42</span><span class="gauge-num-suffix">/100</span></div>
+        </div>
+        <div class="gauge-platform">⊘ Critical</div>
+      </div>
+
+      <div class="gauge-card">
+        <div class="gauge-label">Mobile · Performance</div>
+        <div class="gauge-ring">
+          <svg viewBox="0 0 130 130">
+            <circle class="gauge-ring-bg" cx="65" cy="65" r="56"/>
+            <circle class="gauge-ring-fg" cx="65" cy="65" r="56" stroke="#D4881C" data-pct="46"/>
+          </svg>
+          <div class="gauge-num"><span class="gauge-num-val" style="color:#D4881C">46</span><span class="gauge-num-suffix">/100</span></div>
+        </div>
+        <div class="gauge-platform">⚠ Below Average</div>
+      </div>
+
+      <div class="gauge-card">
+        <div class="gauge-label">Accessibility</div>
+        <div class="gauge-ring">
+          <svg viewBox="0 0 130 130">
+            <circle class="gauge-ring-bg" cx="65" cy="65" r="56"/>
+            <circle class="gauge-ring-fg" cx="65" cy="65" r="56" stroke="#D4881C" data-pct="82"/>
+          </svg>
+          <div class="gauge-num"><span class="gauge-num-val" style="color:#D4881C">82</span><span class="gauge-num-suffix">/100</span></div>
+        </div>
+        <div class="gauge-platform">⚠ Sub-Threshold</div>
+      </div>
+
+      <div class="gauge-card">
+        <div class="gauge-label">SEO</div>
+        <div class="gauge-ring">
+          <svg viewBox="0 0 130 130">
+            <circle class="gauge-ring-bg" cx="65" cy="65" r="56"/>
+            <circle class="gauge-ring-fg" cx="65" cy="65" r="56" stroke="#D4881C" data-pct="84"/>
+          </svg>
+          <div class="gauge-num"><span class="gauge-num-val" style="color:#D4881C">84</span><span class="gauge-num-suffix">/100</span></div>
+        </div>
+        <div class="gauge-platform">⚠ Sub-Threshold</div>
+      </div>
+    </div>
+
+    <div class="ecom-tabs">
+      <div class="ecom-tab">
+        <div class="ecom-tab-num">A · UX</div>
+        <h4>Speed &amp; <em>flow.</em></h4>
+        <div class="ecom-mini-score">
+          <span class="ecom-mini-num">5</span><span class="ecom-mini-denom">/10</span>
+        </div>
+        <ul>
+          <li class="neg">Load times below threshold on both platforms.</li>
+          <li class="mid">Mobile UX functional, far from polished.</li>
+          <li class="pos">Navigation works — would benefit from sticky behaviour.</li>
+          <li class="pos">Shopify checkout is clean.</li>
+          <li class="neg">"Don't miss out" upsell slot below cart is unpopulated.</li>
+        </ul>
+      </div>
+
+      <div class="ecom-tab">
+        <div class="ecom-tab-num">B · Conversion</div>
+        <h4>Homepage <em>clarity.</em></h4>
+        <div class="ecom-mini-score">
+          <span class="ecom-mini-num">4</span><span class="ecom-mini-denom">/10</span>
+        </div>
+        <ul>
+          <li class="mid">CTA above the fold — copy doesn't drive the click.</li>
+          <li class="neg">Only one product hero'd — range is invisible.</li>
+          <li class="mid">Social proof present, easily missed.</li>
+          <li class="neg">Far too many competing messages above the fold.</li>
+        </ul>
+      </div>
+
+      <div class="ecom-tab">
+        <div class="ecom-tab-num">C · Product Page</div>
+        <h4>Buying <em>moment.</em></h4>
+        <div class="ecom-mini-score">
+          <span class="ecom-mini-num">6</span><span class="ecom-mini-denom">/10</span>
+        </div>
+        <ul>
+          <li class="neg">Photography weak and inconsistent across SKUs.</li>
+          <li class="mid">Copy mixes features and benefits — needs a sport-specific edit.</li>
+          <li class="pos">Pricing display is clean.</li>
+          <li class="pos">Reviews are visible on PDP — well done.</li>
+          <li class="mid">Ingredients accessible but poorly structured.</li>
+          <li class="pos">Subscription option present — strong LTV lever.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4 — SEARCH PRESENCE
+     ═══════════════════════════════════════════ -->
+<section class="audit-section" id="search">
+  <div class="container">
+    <div class="section-num">04 / Google &amp; Search Presence</div>
+    <h2 class="section-headline">Owned search is fine. <em>Discovery is leaking.</em></h2>
+    <p class="section-lede">
+      Mapleroo ranks for its own brand and basic product terms — but for the high-intent generic searches where new customers actually live, competitors are converting first. The fix here is small dollars, big return.
+    </p>
+
+    <div class="search-grid">
+      <div class="search-rankings">
+        <h4>⊕ Ranking by query</h4>
+
+        <div class="rank-row">
+          <div class="rank-query">"Mapleroo"</div>
+          <span class="rank-result win"><span class="verdict-dot"></span>Rank #1</span>
+          <p class="rank-note">Brand owns its own name on Google. Profile set up.</p>
+        </div>
+
+        <div class="rank-row">
+          <div class="rank-query">"Mapleroo energy gels"</div>
+          <span class="rank-result mid"><span class="verdict-dot"></span>Rank #1 organic</span>
+          <p class="rank-note">Wins organic — but competitor sponsored ads are sitting above it. Cheap fix.</p>
+        </div>
+
+        <div class="rank-row">
+          <div class="rank-query">"Energy waffles"</div>
+          <span class="rank-result win"><span class="verdict-dot"></span>Top result</span>
+          <p class="rank-note">Owns this generic. Quietly the strongest organic position.</p>
+        </div>
+
+        <div class="rank-row">
+          <div class="rank-query">"Energy gels"</div>
+          <span class="rank-result lose"><span class="verdict-dot"></span>Not ranking</span>
+          <p class="rank-note">The biggest, most valuable category term — and Mapleroo is invisible.</p>
+        </div>
+
+        <div class="rank-row">
+          <div class="rank-query">"Maple energy"</div>
+          <span class="rank-result mid"><span class="verdict-dot"></span>Rank #2</span>
+          <p class="rank-note">Sitting behind <em>Maple Movement.</em> Should not be losing this term.</p>
+        </div>
+      </div>
+
+      <div class="search-gaps">
+        <h4>★ Visibility gaps</h4>
+        <div class="gap-item">
+          <div class="gap-item-label">Google Ads / AdWords</div>
+          <span class="gap-item-status">Absent</span>
+        </div>
+        <div class="gap-item">
+          <div class="gap-item-label">Google Reviews</div>
+          <span class="gap-item-status">Absent</span>
+        </div>
+        <div class="gap-item">
+          <div class="gap-item-label">Google Shopping</div>
+          <span class="gap-item-status">Absent</span>
+        </div>
+        <div class="gap-item">
+          <div class="gap-item-label">Authority articles / PR</div>
+          <span class="gap-item-status">Absent</span>
+        </div>
+        <div class="gap-item">
+          <div class="gap-item-label">Schema / structured data</div>
+          <span class="gap-item-status have">In Place</span>
+        </div>
+        <div class="gap-item">
+          <div class="gap-item-label">Meta titles &amp; descriptions</div>
+          <span class="gap-item-status have">In Place</span>
+        </div>
+
+        <div class="gap-diagnosis">
+          <div class="gap-diagnosis-label">Diagnosis · Moderate</div>
+          <div class="gap-diagnosis-text">
+            The technical foundation is solid. The growth is sitting in three places: a small AdWords investment to defend brand and grow generic, a review-generation engine, and a PR push for one or two authority articles per quarter.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5 — SOCIAL & ALIGNMENT
+     ═══════════════════════════════════════════ -->
+<section class="audit-section" id="social">
+  <div class="container">
+    <div class="section-num">05 / Social &amp; Brand Alignment</div>
+    <h2 class="section-headline">Aligned, but <em>aligned to the wrong altitude.</em></h2>
+    <p class="section-lede">
+      Instagram and the website tell the same story in the same voice — that's a positive. The problem is the story they tell isn't the premium one a $95 24-pack needs to tell. Consistency is good. Consistency at the wrong tier is just consistently not converting.
+    </p>
+
+    <div class="social-grid">
+      <div class="social-checks">
+
+        <div class="social-check">
+          <div class="social-check-label">Grid cohesive?</div>
+          <span class="check-icon mid">~</span>
+          <div class="social-check-finding">Uniform and on-brand. Not what performs in the social environment.</div>
+        </div>
+
+        <div class="social-check">
+          <div class="social-check-label">Messaging consistent?</div>
+          <span class="check-icon yes">✓</span>
+          <div class="social-check-finding">Yes — consistent voice across all posts.</div>
+        </div>
+
+        <div class="social-check">
+          <div class="social-check-label">Founder vs product mix?</div>
+          <span class="check-icon mid">~</span>
+          <div class="social-check-finding">50/50. Product posts read as ads — under-perform vs collabs.</div>
+        </div>
+
+        <div class="social-check">
+          <div class="social-check-label">Engagement quality?</div>
+          <span class="check-icon no">×</span>
+          <div class="social-check-finding">Low on owned content. Collab posts drive better engagement.</div>
+        </div>
+
+        <div class="social-check">
+          <div class="social-check-label">Premium positioning visible?</div>
+          <span class="check-icon no">×</span>
+          <div class="social-check-finding">Like the website, the social channels don't reflect the premium tier.</div>
+        </div>
+      </div>
+
+      <aside class="alignment-card">
+        <h4>⊕ Web ↔ Social alignment</h4>
+        <div class="alignment-row"><span>Same tone</span><span>Yes</span></div>
+        <div class="alignment-row"><span>Same visuals</span><span>Yes</span></div>
+        <div class="alignment-row"><span>Same story</span><span>Yes</span></div>
+        <div class="alignment-verdict">
+          The social and the site are perfectly aligned — <em>they're aligned to the wrong altitude.</em> The brand itself is what's letting both down.
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6 — GROWTH FRICTION
+     ═══════════════════════════════════════════ -->
+<section class="audit-section" id="friction">
+  <div class="container">
+    <div class="section-num">06 / Growth Friction</div>
+    <h2 class="section-headline">If we ran paid ads <em>tomorrow</em>...</h2>
+    <p class="section-lede">
+      ...what would break? This is the most important section of any audit. These are the friction points that compound under spend. Push paid traffic into a leaky funnel and every dollar costs you twice.
+    </p>
+
+    <div class="friction-grid">
+      <div class="friction-card">
+        <div class="friction-icon">F · 01</div>
+        <h5>Weak differentiation</h5>
+        <p>Maple story is real, but not loud enough at first contact.</p>
+      </div>
+      <div class="friction-card">
+        <div class="friction-icon">F · 02</div>
+        <h5>No clear hero product</h5>
+        <p>Range is wide, hero unit unclear above the fold.</p>
+      </div>
+      <div class="friction-card flagged">
+        <div class="friction-icon">F · 03</div>
+        <h5>Confusing <em>brand story</em></h5>
+        <p>"Mapleroo" sells Australia — site rarely shows it.</p>
+      </div>
+      <div class="friction-card flagged">
+        <div class="friction-icon">F · 04</div>
+        <h5>Amateur <em>photography</em></h5>
+        <p>Product shots generic, inconsistent, no athlete texture.</p>
+      </div>
+      <div class="friction-card flagged">
+        <div class="friction-icon">F · 05</div>
+        <h5>Cluttered <em>homepage</em></h5>
+        <p>Far too many competing messages above the fold.</p>
+      </div>
+      <div class="friction-card flagged">
+        <div class="friction-icon">F · 06</div>
+        <h5>Trust signals <em>buried</em></h5>
+        <p>Reviews exist but easy to miss in the homepage noise.</p>
+      </div>
+      <div class="friction-card">
+        <div class="friction-icon">F · 07</div>
+        <h5>Poor SKU system</h5>
+        <p>Variant differentiation weak — flavours read alike.</p>
+      </div>
+      <div class="friction-card flagged">
+        <div class="friction-icon">F · 08</div>
+        <h5>Slow <em>mobile load</em></h5>
+        <p>Below 50 PageSpeed on mobile compounds ad CPC.</p>
+      </div>
+      <div class="friction-card">
+        <div class="friction-icon">F · 09</div>
+        <h5>Inconsistent messaging</h5>
+        <p>Tone is consistent — altitude isn't right for the price.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SCORECARD
+     ═══════════════════════════════════════════ -->
+<section class="scorecard-section" id="scorecard">
+  <div class="container">
+    <div class="section-num">07 / Final Scorecard</div>
+    <h2 class="section-headline">Ten categories. <em>One picture.</em></h2>
+    <p class="section-lede">
+      Each category scored out of 10. Aggregated to the headline figure. The 70-line is the threshold for "strong foundation" — anything below 55 indicates structural friction that compounds at scale.
+    </p>
+
+    <div class="scorecard-grid">
+      <div class="scorecard-bars">
+
+        <div class="scorecard-row">
+          <div class="score-label">Clarity</div>
+          <div class="score-track"><div class="score-fill mid" style="width:60%"></div></div>
+          <div class="score-num">6<em>/10</em></div>
+        </div>
+        <div class="scorecard-row">
+          <div class="score-label">Visual Hierarchy</div>
+          <div class="score-track"><div class="score-fill mid" style="width:50%"></div></div>
+          <div class="score-num">5<em>/10</em></div>
+        </div>
+        <div class="scorecard-row">
+          <div class="score-label">SKU System</div>
+          <div class="score-track"><div class="score-fill mid" style="width:50%"></div></div>
+          <div class="score-num">5<em>/10</em></div>
+        </div>
+        <div class="scorecard-row">
+          <div class="score-label">Premium Perception</div>
+          <div class="score-track"><div class="score-fill poor" style="width:30%"></div></div>
+          <div class="score-num">3<em>/10</em></div>
+        </div>
+        <div class="scorecard-row">
+          <div class="score-label">Site Speed &amp; UX</div>
+          <div class="score-track"><div class="score-fill poor" style="width:40%"></div></div>
+          <div class="score-num">4<em>/10</em></div>
+        </div>
+        <div class="scorecard-row">
+          <div class="score-label">Conversion Readiness</div>
+          <div class="score-track"><div class="score-fill mid" style="width:50%"></div></div>
+          <div class="score-num">5<em>/10</em></div>
+        </div>
+        <div class="scorecard-row">
+          <div class="score-label">Product Page</div>
+          <div class="score-track"><div class="score-fill mid" style="width:60%"></div></div>
+          <div class="score-num">6<em>/10</em></div>
+        </div>
+        <div class="scorecard-row">
+          <div class="score-label">Technical Fundamentals</div>
+          <div class="score-track"><div class="score-fill mid" style="width:60%"></div></div>
+          <div class="score-num">6<em>/10</em></div>
+        </div>
+        <div class="scorecard-row">
+          <div class="score-label">Discoverability</div>
+          <div class="score-track"><div class="score-fill mid" style="width:50%"></div></div>
+          <div class="score-num">5<em>/10</em></div>
+        </div>
+        <div class="scorecard-row">
+          <div class="score-label">Social &amp; Alignment</div>
+          <div class="score-track"><div class="score-fill mid" style="width:50%"></div></div>
+          <div class="score-num">5<em>/10</em></div>
+        </div>
+      </div>
+
+      <aside class="total-panel">
+        <div class="total-panel-eyebrow">Total Score</div>
+        <div class="total-panel-display">
+          <span class="total-num">50</span>
+          <span class="total-denom">/100</span>
+        </div>
+        <p class="total-classification">
+          Structural issues are limiting growth. The foundation needs work before optimisation will return.
+        </p>
+        <div class="total-tiers">
+          <div class="tier-row active">
+            <span class="tier-range">&lt; 55</span>
+            <span>Structural</span>
+          </div>
+          <div class="tier-row">
+            <span class="tier-range">55–70</span>
+            <span>Scaling</span>
+          </div>
+          <div class="tier-row">
+            <span class="tier-range">70–100</span>
+            <span>Optimise</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PRIORITY FIXES
+     ═══════════════════════════════════════════ -->
+<section class="fixes-section" id="fixes">
+  <div class="container">
+    <div class="section-num">08 / Priority Fixes</div>
+    <h2 class="section-headline">Five moves. <em>Most impact, least effort.</em></h2>
+    <p class="section-lede">
+      Ranked by leverage. Each item is judged on impact (how much it moves the score), effort (how much resource it takes), and timeline (how fast results compound). Do them in order.
+    </p>
+
+    <div class="fixes-list">
+
+      <div class="fix-row">
+        <div class="fix-num"></div>
+        <div class="fix-content">
+          <h4>Brand-up the visual <em>identity.</em></h4>
+          <p>The brand is the single biggest gap. Photography, packaging refinement, an Australian endurance visual language (Ironman, surf-coast, bunch rides). Lean into the "roo" — the name is doing nothing right now.</p>
+        </div>
+        <div class="fix-meta">
+          <div class="fix-meta-row"><span>Impact</span><strong>Critical</strong></div>
+          <div class="fix-meta-row"><span>Effort</span><strong>High</strong></div>
+          <div class="fix-meta-row"><span>Timeline</span><strong>8–12 wk</strong></div>
+        </div>
+      </div>
+
+      <div class="fix-row">
+        <div class="fix-num"></div>
+        <div class="fix-content">
+          <h4>Fix the <em>foundation.</em></h4>
+          <p>PageSpeed under 46 is silently bleeding revenue across every channel. Lazy-load imagery, defer non-critical scripts, compress hero assets, audit theme-injected JS. This is non-negotiable before any paid spend.</p>
+        </div>
+        <div class="fix-meta">
+          <div class="fix-meta-row"><span>Impact</span><strong>High</strong></div>
+          <div class="fix-meta-row"><span>Effort</span><strong>Medium</strong></div>
+          <div class="fix-meta-row"><span>Timeline</span><strong>2–3 wk</strong></div>
+        </div>
+      </div>
+
+      <div class="fix-row">
+        <div class="fix-num"></div>
+        <div class="fix-content">
+          <h4>Simplify the <em>homepage.</em></h4>
+          <p>Cut competing messages above the fold. One hero product OR one clear range pivot. Promote benefits ("low GI, electrolyte-rich, real food fuel") above pricing. Move trust signals into the hero, not into the footer.</p>
+        </div>
+        <div class="fix-meta">
+          <div class="fix-meta-row"><span>Impact</span><strong>High</strong></div>
+          <div class="fix-meta-row"><span>Effort</span><strong>Low</strong></div>
+          <div class="fix-meta-row"><span>Timeline</span><strong>1–2 wk</strong></div>
+        </div>
+      </div>
+
+      <div class="fix-row">
+        <div class="fix-num"></div>
+        <div class="fix-content">
+          <h4>Switch on <em>discovery.</em></h4>
+          <p>A small AdWords spend defending brand + growing "energy gels" — the term Mapleroo is invisible on. Set up Google Shopping. Build a review-request flow into post-purchase email. Pitch one authority article per quarter.</p>
+        </div>
+        <div class="fix-meta">
+          <div class="fix-meta-row"><span>Impact</span><strong>Medium</strong></div>
+          <div class="fix-meta-row"><span>Effort</span><strong>Low</strong></div>
+          <div class="fix-meta-row"><span>Timeline</span><strong>2–4 wk</strong></div>
+        </div>
+      </div>
+
+      <div class="fix-row">
+        <div class="fix-num"></div>
+        <div class="fix-content">
+          <h4>Re-edit product <em>pages.</em></h4>
+          <p>Reorder PDP hierarchy — benefit copy above pricing. Write sport-specific use cases ("for the marathon," "for the bunch ride," "for the recovery hour"). Restructure ingredient panel. Photograph each SKU consistently.</p>
+        </div>
+        <div class="fix-meta">
+          <div class="fix-meta-row"><span>Impact</span><strong>Medium</strong></div>
+          <div class="fix-meta-row"><span>Effort</span><strong>Medium</strong></div>
+          <div class="fix-meta-row"><span>Timeline</span><strong>3–4 wk</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SIGN-OFF
+     ═══════════════════════════════════════════ -->
+<section class="signoff">
+  <div class="container">
+    <div class="signoff-content">
+      <div>
+        <div class="eyebrow" style="color: var(--lime);">Where we go from here</div>
+        <h2>The product is real. <em>The brand needs to catch up.</em></h2>
+        <p>
+          Mapleroo has earned the premium price tag through formula, founder story, and category insight. The next 90 days are about making the brand presentation match the product reality. We'd recommend the brand-system rebuild and the homepage simplification first — they unlock everything else.
+        </p>
+      </div>
+
+      <div class="signoff-stamp">
+        <div class="signoff-stamp-brand">pink dog<span class="studio-pill">studio</span></div>
+        <div class="signoff-stamp-meta">
+          Building brands with bite.<br>
+          Online, offline, everywhere.<br>
+          Sydney · Santiago · 24hrs
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Mapleroo <span>/</span> FMCG Brand Audit <span>/</span> v1.0 <span>/</span> Pink Dog Studio
+</footer>
+
+<script>
+  // Animate gauges on load
+  window.addEventListener('load', () => {
+    const circumference = 2 * Math.PI * 56; // r = 56
+    document.querySelectorAll('.gauge-ring-fg').forEach(circle => {
+      const pct = parseFloat(circle.dataset.pct);
+      const offset = circumference * (1 - pct / 100);
+      // small delay for staggered effect
+      setTimeout(() => {
+        circle.style.strokeDashoffset = offset;
+      }, 200);
+    });
+  });
+
+  // Intersection observer for score bars (re-trigger on scroll-into-view)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.transition = 'width 1.4s cubic-bezier(0.16, 1, 0.3, 1)';
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.score-fill, .price-bar-fill').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
